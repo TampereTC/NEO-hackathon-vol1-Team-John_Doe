@@ -27,9 +27,9 @@ kubectl --namespace kafka create -f kafka-service-external.yaml
 
 3. Testing
 
-3.1 Local
+  3.1 Local
 
-  List pods:
+    List pods:
   
     kubectl get pods --namespace kafka
   
