@@ -15,10 +15,15 @@ https://github.com/TampereTC/NEO-hackathon-vol1-Team-John_Doe/blob/master/Miniku
 https://github.com/TampereTC/NEO-hackathon-vol1-Team-John_Doe/tree/master/kafka
 
 kubectl create namespace kafka
+
 kubectl --namespace kafka create -f zookeeper.yaml
+
 kubectl --namespace kafka create -f zookeeper-services.yaml
+
 kubectl --namespace kafka create -f kafka-controller.yaml
+
 kubectl --namespace kafka create -f kafka-service-external.yaml
+
 
 3. Testing
 
