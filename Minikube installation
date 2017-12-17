@@ -1,0 +1,41 @@
+Minikube setup for windows
+
+Pre-requisites:
+  -- Oracle VirtualBox installed
+
+From Windows CMD:
+
+Create some dir, for example:
+c:
+mkdir c:\minikube
+cd c:\minikube
+
+Download minikube and kubectl executables from web:
+http://storage.googleapis.com/minikube/releases/v0.23.0/minikube-windows-amd64.exe
+https://storage.googleapis.com/kubernetes-release/release/v1.8.0/bin/windows/amd64/kubectl.exe
+
+Copy downloaded files to minikube folder and rename minikube executable:
+rename minikube-windows-amd64.exe minikube.exe
+
+Find out proxy configuration:
+set
+...
+HTTPS_PROXY=https://<Proxy IP>:8080
+HTTP_PROXY=http://<Proxy IP>:8080
+...
+
+Start minikube with proxy env. variables:
+minikube start --docker-env HTTP_PROXY=http://<Proxy IP>:8080  --docker-env HTTPS_PROXY=https://<Proxy IP>:8080 --docker-env no_proxy 192.168.990/24
+
+Find out minikube VM IP:
+minikube ip
+192.168.99.104
+
+Set no_proxy:
+set NO_PROXY=192.168.99.104
+
+Check kubernetes cluster:
+kubectl cluster-info
+Kubernetes master is running at https://192.168.99.104:8443
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'. 
