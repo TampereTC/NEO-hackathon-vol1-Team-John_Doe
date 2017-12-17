@@ -29,45 +29,28 @@ kubectl --namespace kafka create -f kafka-service-external.yaml
 
   3.1 Local
 
-    List pods:
-  
-    kubectl get pods --namespace kafka
-  
+    List pods:  
+    kubectl get pods --namespace kafka  
     NAME                           READY     STATUS    RESTARTS   AGE
-
-    kafka-controller-t2dq4         1/1       Running   0          2m
-    
-    zookeeper-controller-1-mjm7t   1/1       Running   0          3m
-    
-    zookeeper-controller-2-98rsv   1/1       Running   0          3m
-    
-    zookeeper-controller-3-f2hb9   1/1       Running   0          3m
-    
+    kafka-controller-t2dq4         1/1       Running   0          2m    
+    zookeeper-controller-1-mjm7t   1/1       Running   0          3m    
+    zookeeper-controller-2-98rsv   1/1       Running   0          3m    
+    zookeeper-controller-3-f2hb9   1/1       Running   0          3m    
  
-  Login to kafka pod console:
-  
-    kubectl exec -it kafka-controller-t2dq4 /bin/bash --namespace kafka 
-    
-      # cd /opt/kafka
-      
-      Sent message to topic:
-      
-      # ./bin/kafka-console-producer.sh --broker-list kafka:9092 --topic mytopic
-      
-      > message 1
-      
+    Login to kafka pod console:  
+    kubectl exec -it kafka-controller-t2dq4 /bin/bash --namespace kafka    
+      # cd /opt/kafka      
+      Sent message to topic:      
+      # ./bin/kafka-console-producer.sh --broker-list kafka:9092 --topic mytopic      
+      > message 1      
       Ctrl-C
       
-      Consume message from topic:
-      
-      # ./bin/kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic mytopic --from-beginning
-      
-      message 1
-      
+      Consume message from topic:      
+      # ./bin/kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic mytopic --from-beginning      
+      message 1      
       Ctrl-C
       
-      Exit from console:
-      
+      Exit from console:      
       # exit
       
       
