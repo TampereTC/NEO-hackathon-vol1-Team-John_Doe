@@ -54,14 +54,18 @@ kubectl --namespace kafka create -f kafka-service-external.yaml
   3.2 Kubernetes internal
   
     Create kafka consumer and producer pods:
+    
       kubectl --namespace kafka create -f kafka-client-producer.yaml
+    
       kubectl --namespace kafka create -f kafka-client-consumer.yaml
       
     Login to producer pod console and send message to kafka:
+    
       kubectl exec -it testclient-producer /bin/bash --namespace kafka
         # ./bin/kafka-console-producer.sh --broker-list kafka:9092 --topic mytopic
         > message 2
         Ctrl-C
+    
     Open second CMD window and login to consumer pod console:
       kubectl exec -it testclient-consumer /bin/bash --namespace kafka
         # ./bin/kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic mytopic --from-beginning
