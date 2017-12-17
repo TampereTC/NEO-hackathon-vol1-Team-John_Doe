@@ -6,10 +6,12 @@ This repository contains instructions and configuration files to create stateles
 
 Installation:
 
-1. Setup Kubernetes Minikube
+1. Setup Kubernetes Minikube:
+
 https://github.com/TampereTC/NEO-hackathon-vol1-Team-John_Doe/blob/master/Minikube%20installation
 
 2. Setup Kafka:
+
 https://github.com/TampereTC/NEO-hackathon-vol1-Team-John_Doe/tree/master/kafka
 
 kubectl create namespace kafka
@@ -21,6 +23,7 @@ kubectl --namespace kafka create -f kafka-service-external.yaml
 3. Testing
 
 3.1 Local
+
   List pods:
     kubectl get pods --namespace kafka
     NAME                           READY     STATUS    RESTARTS   AGE
@@ -44,6 +47,7 @@ kubectl --namespace kafka create -f kafka-service-external.yaml
       # exit
       
   3.2 Kubernetes internal
+  
     Create kafka consumer and producer pods:
       kubectl --namespace kafka create -f kafka-client-producer.yaml
       kubectl --namespace kafka create -f kafka-client-consumer.yaml
@@ -61,6 +65,7 @@ kubectl --namespace kafka create -f kafka-service-external.yaml
         Ctrl-C
     
   3.3 External connection to kafka
+  
     In VirtualBox instantiate new CentOS or Ubuntu VM
 
     Download and unpack Kafka:
