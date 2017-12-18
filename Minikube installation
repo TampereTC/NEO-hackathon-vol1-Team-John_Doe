@@ -23,6 +23,8 @@ set
 HTTPS_PROXY=https://<Proxy IP>:8080
 HTTP_PROXY=http://<Proxy IP>:8080
 ...
+Set no_proxy:
+set NO_PROXY=192.168.99.0/24
 
 Start minikube with proxy env. variables:
 minikube start --docker-env HTTP_PROXY=http://<Proxy IP>:8080  --docker-env HTTPS_PROXY=https://<Proxy IP>:8080 --docker-env no_proxy 192.168.99.0/24
@@ -30,9 +32,6 @@ minikube start --docker-env HTTP_PROXY=http://<Proxy IP>:8080  --docker-env HTTP
 Find out minikube VM IP:
 minikube ip
 192.168.99.104
-
-Set no_proxy:
-set NO_PROXY=192.168.99.104
 
 Check kubernetes cluster:
 kubectl cluster-info
