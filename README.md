@@ -79,7 +79,10 @@ kubectl --namespace kafka create -f kafka-service-external.yaml
   3.3 External connection to kafka
   
     In VirtualBox instantiate new CentOS or Ubuntu VM
-
+      Images can be found here:
+      http://www.osboxes.org/centos/
+      http://www.osboxes.org/ubuntu/
+      
     Download and unpack Kafka:
     https://www.apache.org/dyn/closer.cgi?path=/kafka/1.0.0/kafka_2.11-1.0.0.tgz
 
