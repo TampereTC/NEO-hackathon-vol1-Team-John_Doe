@@ -108,26 +108,26 @@ kubectl --namespace kafka create -f kafka-service-external.yaml
         message 3
         Ctrl-C
     
-    3.4 Testing kafka with python
+  3.4 Testing kafka with python
       
-      Install kafka module in python:
-      
-        # pip install kafka
+    Install kafka module in python:
+     
+      # pip install kafka
         
-      Start python and setup consumer:
+    Start python and setup consumer:
         
-        # python
-        >>> from kafka import KafkaConsumer
-        >>> consumer = KafkaConsumer('mytopic', bootstrap_servers='kafka:9092')
-        >>> for message in consumer:
-        ...   print message
-        ...
-        ConsumerRecord(topic=u'mytopic', partition=0, offset=1, timestamp=1513594024823, timestamp_type=0, key=None, value='message 4', checksum=-179384026, serialized_key_size=-1, serialized_value_size=9)
-        ConsumerRecord(topic=u'mytopic', partition=1, offset=2, timestamp=1513594021786, timestamp_type=0, key=None, value='message 5', checksum=-1033357726, serialized_key_size=-1, serialized_value_size=9)
+      # python
+      >>> from kafka import KafkaConsumer
+      >>> consumer = KafkaConsumer('mytopic', bootstrap_servers='kafka:9092')
+      >>> for message in consumer:
+      ...   print message
+      ...
+      ConsumerRecord(topic=u'mytopic', partition=0, offset=1, timestamp=1513594024823, timestamp_type=0, key=None, value='message 4', checksum=-179384026, serialized_key_size=-1, serialized_value_size=9)
+      ConsumerRecord(topic=u'mytopic', partition=1, offset=2, timestamp=1513594021786, timestamp_type=0, key=None, value='message 5', checksum=-1033357726, serialized_key_size=-1, serialized_value_size=9)
         
-      Open new terminal window and start producer:
-        # python
-        >>> from kafka import KafkaProducer
-        >>> producer = KafkaProducer(bootstrap_servers='kafka:9092')
-        >>> producer.send('mytopic', value=b'message 4')
-        >>> producer.send('mytopic', value=b'message 5')
+    Open new terminal window and start producer:
+      # python
+      >>> from kafka import KafkaProducer
+      >>> producer = KafkaProducer(bootstrap_servers='kafka:9092')
+      >>> producer.send('mytopic', value=b'message 4')
+      >>> producer.send('mytopic', value=b'message 5')
