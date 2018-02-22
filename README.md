@@ -131,3 +131,21 @@ kubectl --namespace kafka create -f kafka-service-external.yaml
       >>> producer = KafkaProducer(bootstrap_servers='kafka:9092')
       >>> producer.send('mytopic', value=b'message 4')
       >>> producer.send('mytopic', value=b'message 5')
+  
+    How to get this working in windows:
+
+      Add kafka hostname to localhost ip in windows hosts file (C:\Windows\System32\drivers\etc\hosts)
+
+        127.0.0.1 kafka.kafka.svc.cluster.local kafka
+  
+      Configure port forwarding to minikube virtual machine from Oracle VirtualBox
+      
+        Open minikube virtual machine settings... --> Network --> Adapter 1 --> advanced -->  Port Forwaring 
+     
+        Add new row and set following values:
+        
+        Name = kafka (some name)
+        Host IP= 127.0.0.1 (localhost IP what is added to hosts file>)
+        Host Port=9092 (Kafkas real port) 
+        Guest IP=192.168.99.100 (minikube ip can get with command "minikube ip")
+        Guest Port=31901 (external kafka port, for example from "minikube dashboard")
